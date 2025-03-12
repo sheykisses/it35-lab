@@ -11,6 +11,7 @@ import {
 const Favorites: React.FC = () => {
 
 return (
+  
   <IonPage>
     <IonHeader>
       <IonToolbar>
