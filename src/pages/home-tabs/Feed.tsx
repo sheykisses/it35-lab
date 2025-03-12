@@ -106,7 +106,7 @@ return (
     <IonCardSubtitle></IonCardSubtitle>
   </IonCardHeader>
 
-  <IonCardContent>Stay hungry.</IonCardContent>
+  <IonCardContent></IonCardContent>
 </IonCard>
 
       <IonToolbar>
