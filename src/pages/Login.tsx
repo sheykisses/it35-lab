@@ -12,7 +12,7 @@ import {
 } from '@ionic/react';
 import { logoIonic } from 'ionicons/icons';
 import { useState } from 'react';
-import { supabase } from '../../utils/supabaseClient';
+import { supabase } from '../utils/supabaseClient';
 
 const AlertBox: React.FC<{ message: string; isOpen: boolean; onClose: () => void }> = ({ message, isOpen, onClose }) => {
   return (
@@ -42,7 +42,7 @@ const Login: React.FC = () => {
       setShowAlert(true);
       return;
     }
- 
+
     setShowToast(true); 
     setTimeout(() => {
       navigation.push('/it35-lab/app', 'forward', 'replace');
@@ -104,7 +104,7 @@ const Login: React.FC = () => {
           Login
         </IonButton>
 
-        <IonButton routerLink="/it35-lab/Register" expand="full" fill="clear" shape='round'>
+        <IonButton routerLink="/it35-lab/register" expand="full" fill="clear" shape='round'>
           Don't have an account? Register here
         </IonButton>
 
@@ -125,4 +125,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login; 
+export default Login;
