@@ -7,6 +7,7 @@ import {
 import { supabase } from '../utils/supabaseClient';
 import { useHistory } from 'react-router-dom';
 
+
 const EditAccount: React.FC = () => {
     const [email, setEmail] = useState('');
     const [currentPassword, setCurrentPassword] = useState('');
@@ -25,8 +26,7 @@ const EditAccount: React.FC = () => {
     useEffect(() => {
         const fetchSessionAndData = async () => {
           // Fetch the current session
-          const { data: session, error: sessionError } = await supabase.auth.getSession();
-      
+          const { data: session, error: sessionError } = await supabase.auth.getSession();      
           if (sessionError || !session || !session.session) {
             setAlertMessage('You must be logged in to access this page.');
             setShowAlert(true);
@@ -39,8 +39,7 @@ const EditAccount: React.FC = () => {
             .from('users')
             .select('user_firstname, user_lastname, user_avatar_url, user_email, username')
             .eq('user_email', session.session.user.email) // Use email from the session
-            .single();
-      
+            .single(); 
           if (userError || !user) {
             setAlertMessage('User data not found.');
             setShowAlert(true);
@@ -64,8 +63,7 @@ const EditAccount: React.FC = () => {
         setAvatarFile(file);
         setAvatarPreview(URL.createObjectURL(file));
       }
-    };
-  
+    }; 
     const handleUpdate = async () => {
         if (password !== confirmPassword) {
           setAlertMessage("Passwords don't match.");
@@ -80,22 +78,18 @@ const EditAccount: React.FC = () => {
           setAlertMessage('Error fetching session or no session available.');
           setShowAlert(true);
           return;
-        }
-      
-        const user = session.session.user;
-      
+        } 
+
+        const user = session.session.user; 
         if (!user.email) {
             setAlertMessage('Error: User email is missing.');
             setShowAlert(true);
             return;
-          }
-          
+          } 
           const { error: passwordError } = await supabase.auth.signInWithPassword({
             email: user.email,
             password: currentPassword,
-          });
-          
-      
+          }); 
         if (passwordError) {
           setAlertMessage('Incorrect current password.');
           setShowAlert(true);
@@ -103,8 +97,7 @@ const EditAccount: React.FC = () => {
         }
       
         // Handle avatar upload if the avatar file is changed
-        let avatarUrl = avatarPreview;
-      
+        let avatarUrl = avatarPreview; 
         if (avatarFile) {
             const fileExt = avatarFile.name.split('.').pop();
             const fileName = `${Date.now()}.${fileExt}`;
