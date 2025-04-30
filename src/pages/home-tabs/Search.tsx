@@ -8,6 +8,7 @@ import {
     IonToolbar 
 } from '@ionic/react';
 
+
 const Search: React.FC = () => {
   return (
     <IonPage>
@@ -24,5 +25,6 @@ const Search: React.FC = () => {
     </IonPage>
   );
 };
+
 
 export default Search;
