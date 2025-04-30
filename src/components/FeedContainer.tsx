@@ -50,19 +50,18 @@ const FeedContainer = () => {
 
   const createPost = async () => {
     if (!postContent || !user || !username) return;
-  
+
+    
     // Fetch avatar URL
     const { data: userData, error: userError } = await supabase
       .from('users')
       .select('user_avatar_url')
       .eq('user_id', user.id)
-      .single();
-  
+      .single(); 
     if (userError) {
       console.error('Error fetching user avatar:', userError);
       return;
-    }
-  
+    } 
     const avatarUrl = userData?.user_avatar_url || 'https://ionicframework.com/docs/img/demos/avatar.svg';
   
     // Insert post with avatar URL
@@ -75,22 +74,19 @@ const FeedContainer = () => {
   
     if (!error && data) {
       setPosts([data[0] as Post, ...posts]);
-    }
-  
+    } 
     setPostContent('');
   };
 
   const deletePost = async (post_id: string) => {
     await supabase.from('posts').delete().match({ post_id });
     setPosts(posts.filter(post => post.post_id !== post_id));
-  };
-
+  }; 
   const startEditingPost = (post: Post) => {
     setEditingPost(post);
     setPostContent(post.post_content);
     setIsModalOpen(true);
-  };
-
+  }; 
   const savePost = async () => {
     if (!postContent || !editingPost) return;
     const { data, error } = await supabase
@@ -107,6 +103,7 @@ const FeedContainer = () => {
       setIsAlertOpen(true);
     }
   };
+
 
   return (
     <IonApp>
@@ -162,6 +159,7 @@ const FeedContainer = () => {
                     </IonText>
                 </IonCardContent>
                 
+
                 {/* Popover with Edit and Delete options */}
                 <IonPopover
                   isOpen={popoverState.open && popoverState.postId === post.post_id}
@@ -198,6 +196,7 @@ const FeedContainer = () => {
           </IonFooter>
         </IonModal>
 
+
         <IonAlert
           isOpen={isAlertOpen}
           onDidDismiss={() => setIsAlertOpen(false)}
@@ -208,6 +207,5 @@ const FeedContainer = () => {
       </IonPage>
     </IonApp>
   );
-};
-
+}; 
 export default FeedContainer;
