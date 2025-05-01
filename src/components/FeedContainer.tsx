@@ -208,6 +208,5 @@ const FeedContainer = () => {
       </IonPage>
     </IonApp>
   );
-};
-
+}; 
 export default FeedContainer;

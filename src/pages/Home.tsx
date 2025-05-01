@@ -53,6 +53,7 @@ import Search from './home-tabs/Search';
             <Redirect to="/it35-lab/app/home/feed" />
           </Route>
 
+
         </IonRouterOutlet>
         </IonTabs>
       </IonReactRouter>
