@@ -180,7 +180,6 @@ const EditAccount: React.FC = () => {
           </IonItem>
           <br />
   
-  
           {/* Avatar Upload Section */}
           <IonGrid>
             <IonRow className="ion-justify-content-center ion-align-items-center">

@@ -116,4 +116,4 @@ import EditProfilePage from './EditProfilePage';
     );
   };
   
-  export default Menu;
+  export default Menu; 
