@@ -1,14 +1,9 @@
 import { 
-  IonButtons,
-    IonContent, 
-    IonHeader, 
-    IonMenuButton, 
-    IonPage, 
-    IonTitle, 
-    IonToolbar 
+    IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle,  IonToolbar 
 } from '@ionic/react';
 import FeedContainer from '../../components/FeedContainer'; 
 const Feed: React.FC = () => {
+
   return (
     <IonPage>
       <IonHeader>
