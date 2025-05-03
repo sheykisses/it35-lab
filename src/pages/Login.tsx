@@ -1,11 +1,11 @@
-import { 
+import {
   IonAlert,
   IonButton,
-  IonContent, 
-  IonInput, 
-  IonInputPasswordToggle,  
-  IonPage,  
-  IonToast,  
+  IonContent,
+  IonInput,
+  IonInputPasswordToggle,
+  IonPage,
+  IonToast,
   useIonRouter,
   IonLoading
 } from '@ionic/react';
@@ -41,7 +41,6 @@ const Login: React.FC = () => {
   };
 
   const doLogin = async () => {
-    // Basic validation
     if (!email || !password) {
       setAlertMessage('Please fill in both email and password.');
       setShowAlert(true);
@@ -83,22 +82,41 @@ const Login: React.FC = () => {
   return (
     <IonPage>
       <IonContent className="login-content" style={{ backgroundColor: '#f5f7fa', padding: '20px' }}>
-        <div className="login-container" style={{
-          maxWidth: '450px',
-          margin: 'auto',
-          padding: '30px',
-          borderRadius: '15px',
-          backgroundColor: 'black',
-          boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.1)',
-          marginTop: '50px', // Added margin at the top
-        }}>
-          <h1 className="login-title" style={{
-            textAlign: 'center',
-            fontSize: '28px',
-            fontWeight: '700',
-            color: '#4CAF50',
-            marginBottom: '30px',
-          }}>Welcome Back</h1>
+      <div
+  className="login-container"
+  style={{
+    maxWidth: '450px',
+    margin: 'auto',
+    padding: '30px',
+    borderRadius: '15px',
+    backgroundColor: 'white',
+    boxShadow: '0px 10px 30px rgba(0, 0, 0, 0.1)',
+    marginTop: '60px',
+  }}
+>
+  {/* Ionic Logo - now placed directly above the title */}
+  <div style={{ textAlign: 'center', marginBottom: '10px' }}>
+    <img
+      src="https://ionicreacthub.com/logo.png"
+      alt="Ionic Logo"
+      style={{ width: '60px', height: '60px' }}
+    />
+  </div>
+
+  {/* Welcome title */}
+  <h1
+    className="login-title"
+    style={{
+      textAlign: 'center',
+      fontSize: '28px',
+      fontWeight: '700',
+      color: '#4CAF50',
+      marginBottom: '30px',
+    }}
+  >
+    Welcome Back
+  </h1>
+
 
           <IonInput
             label="Email"
@@ -158,10 +176,10 @@ const Login: React.FC = () => {
             Don’t have an account? Register here
           </IonButton>
 
-          {/* Reusable AlertBox Component */}
+          {/* AlertBox */}
           <AlertBox message={alertMessage} isOpen={showAlert} onClose={() => setShowAlert(false)} />
 
-          {/* IonToast for success message */}
+          {/* Toast */}
           <IonToast
             isOpen={showToast}
             onDidDismiss={() => setShowToast(false)}
@@ -171,7 +189,7 @@ const Login: React.FC = () => {
             color="primary"
           />
 
-          {/* IonLoading for loading state */}
+          {/* Loading */}
           <IonLoading
             isOpen={isLoading}
             message={'Logging in...'}
